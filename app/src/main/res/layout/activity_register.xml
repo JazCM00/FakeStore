@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.RegisterActivity">
 
     <!-- Textos de ingreso de manera vertical -->
     <LinearLayout
@@ -20,10 +20,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="60dp"
-            android:text="Login"
+            android:text="REGISTRO"
             android:fontFamily="@font/dsdigi"
             android:textColor="@color/text"
-            android:textSize="60sp" />
+            android:textSize="50sp"
+            android:layout_gravity="center_horizontal" />
 
         <!-- Subtitulo -->
         <TextView
@@ -31,10 +32,28 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/bondrians"
-            android:text="Ingresa tu email y password"
+            android:fontFamily="@font/roboto"
+            android:text="Ingrese los datos del nuevo Usuario"
             android:textColor="@color/text"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Nombre -->
+        <EditText
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="25dp"
+            android:hint="Nombre y Apellido"
+            android:textColorHint="@color/secondary"
+            android:textColor="@color/icons"
+            android:inputType="text"
+            android:textSize="15sp"
+            android:background="@drawable/editext_custom"
+            android:padding="15dp"
+            />
 
         <!-- Email -->
         <EditText
@@ -42,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="25dp"
             android:hint="Email"
             android:textColorHint="@color/secondary"
@@ -70,6 +89,23 @@
             android:padding="15dp"
             />
 
+        <!-- Repetir Password -->
+        <EditText
+            android:id="@+id/txtRepeat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25dp"
+            android:hint="Repetir el Password"
+            android:textColorHint="@color/secondary"
+            android:textColor="@color/icons"
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:background="@drawable/editext_custom"
+            android:padding="15dp"
+            />
+
     </LinearLayout>
 
     <!-- Boton y Registro -->
@@ -81,27 +117,27 @@
         android:gravity="center_horizontal"
         >
 
-        <!-- Boton Iniciar -->
+        <!-- Boton Registrar -->
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:backgroundTint="@color/accent"
-            android:text="INICIAR SESION"
+            android:text="REGISTRAR USUARIO"
             android:textColor="@color/text"
             android:background="@drawable/rounded_button" />
 
         <!-- Registro Usuario -->
         <TextView
-            android:id="@+id/btnRegister"
+            android:id="@+id/txtLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Deseas Registrarte ?"
-            android:textColor="@color/divider"/>
+            android:text="Regresar a Login"
+            android:textColor="@color/divider" />
 
     </LinearLayout>
 
