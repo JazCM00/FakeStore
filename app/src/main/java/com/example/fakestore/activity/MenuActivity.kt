@@ -92,7 +92,10 @@ class MenuActivity : AppCompatActivity() {
             Log.i(TAG,"**************************************************Se preciono el boton")
             goToUser()
         }
-
+        btnCategorias.setOnClickListener{
+            Log.i(TAG,"**************************************************Se preciono el boton")
+            gotoCategory()
+        }
         //Salir de la aplicacion
         btnSalir.setOnClickListener{
             goToSalir()
@@ -103,6 +106,13 @@ class MenuActivity : AppCompatActivity() {
     private fun goToUser(){
         Log.i(TAG,"**************************************************Entro en User")
         val intent = Intent(this, UserActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun gotoCategory(){
+        Log.i(TAG,"**************************************************Entro en Categorie")
+        val intent = Intent(this, CategoryActivity::class.java)
         startActivity(intent)
         finish()
     }
