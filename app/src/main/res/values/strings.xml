@@ -5,4 +5,6 @@
     <string name="tltCategoria">CATEGORIAS</string>
     <string name="tltProducto">PRODUCTOS</string>
     <string name="tltVerMas">Ver mas</string>
+    <string name="tltBienvenidos">BIENVENIDOS</string>
+
 </resources>

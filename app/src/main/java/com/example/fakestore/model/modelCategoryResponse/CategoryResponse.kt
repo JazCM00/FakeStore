@@ -1,3 +1,3 @@
-package com.example.fakestore.modelCategoryResponse
+package com.example.fakestore.model.modelCategoryResponse
 
 class CategoryResponse : ArrayList<CategoryResponseItem>()

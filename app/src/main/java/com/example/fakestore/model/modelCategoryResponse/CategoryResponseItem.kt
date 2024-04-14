@@ -1,4 +1,4 @@
-package com.example.fakestore.modelCategoryResponse
+package com.example.fakestore.model.modelCategoryResponse
 
 data class CategoryResponseItem(
     val creationAt: String,

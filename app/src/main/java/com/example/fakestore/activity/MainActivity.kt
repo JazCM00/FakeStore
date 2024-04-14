@@ -13,7 +13,12 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.fakestore.R
 import com.example.fakestore.service.ApiService
 import com.example.fakestore.service.response.LoginResponse
+import com.example.fakestore.util.LoadingDialog
+import com.example.fakestore.util.PreferenceHelper
+import com.example.fakestore.util.PreferenceHelper.PreferenceHelper.set
+import com.example.fakestore.util.Variables
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 
@@ -55,36 +60,16 @@ class MainActivity : AppCompatActivity() {
     }
     //Funcion q Inicializa todos los componentes
     private fun InitializationComponents(){
-        btnRegister = findViewById<TextView>(R.id.btnRegister)
         btnLogin = findViewById<Button>(R.id.btnLogin)
     }
 
     //Funcion que inicializa los Listener
     private fun InitializationListener(){
 
-        //Cambio a la pantalla de Registro
-        btnRegister.setOnClickListener{
-            goToTRegister()
-        }
-
         //Cambio a la pantalla Menu
         btnLogin.setOnClickListener{
             validateLogin()
         }
-    }
-
-    //Funcion para abrir el registro
-    private fun goToTRegister(){
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
-    }
-
-    //Funcion para abrir el menu
-    private fun goToMenu(){
-        val intent = Intent(this, MenuActivity::class.java)
-        intent.putExtra("access_token",accessToken)
-        startActivity(intent)
-        finish()
     }
 
     //Funcion para validar con la Api
@@ -93,12 +78,13 @@ class MainActivity : AppCompatActivity() {
         val txtPassword = findViewById<TextView>(R.id.txtPassword).text.toString()
 
         if(txtEmail.trim().isEmpty() || txtPassword.trim().isEmpty()){
+
             Toast.makeText(applicationContext, "DEBE INGRESAR EL USUARIO Y LA CONTRASENA", Toast.LENGTH_SHORT).show()
             return
         }
 
         val call = apiService.postLogin(txtEmail, txtPassword)
-        call.enqueue(object: retrofit2.Callback<LoginResponse>{
+        call.enqueue(object: Callback<LoginResponse>{
 
             //Respuesta correcta
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
@@ -108,14 +94,15 @@ class MainActivity : AppCompatActivity() {
                 //Respuesta es nula
                 if(loginResponse == null){
                     if(messageLogin == "Unauthorized") {
+
                         Toast.makeText(applicationContext, "CREDENCIALES INCORRECTAS", Toast.LENGTH_SHORT).show()
                     }else {
                         Toast.makeText(applicationContext, "ERROR SERVIDOR", Toast.LENGTH_SHORT).show()
                     }
                 }else {
                     if (messageLogin == "Created"){
-                        Toast.makeText(applicationContext, "BIENVENIDO A FAKESTORE", Toast.LENGTH_SHORT).show()
                         accessToken = response.body()!!.access_token
+                        createSession()
                         goToMenu()
                     }else {
                         Toast.makeText(applicationContext, "ERROR SERVIDOR", Toast.LENGTH_SHORT).show()
@@ -130,4 +117,21 @@ class MainActivity : AppCompatActivity() {
 
         } )
     }
+
+    //Funcion para abrir el menu
+    private fun goToMenu(){
+        Log.i(TAG,"**************************************************Entro en Menu")
+        val intent = Intent(this, MenuActivity::class.java)
+        intent.putExtra("access_token",accessToken)
+        Variables.tokenGlobal = accessToken
+        startActivity(intent)
+        finish()
+    }
+
+    //Funcion para crear la session
+    private fun createSession(){
+        val preferences = PreferenceHelper.PreferenceHelper.defaultPrefs(this)
+        preferences["session"] = true
+    }
+
 }

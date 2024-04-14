@@ -1,7 +1,6 @@
 package com.example.fakestore.service
 
-import com.example.fakestore.model.modelUserResponse.UserResponse
-import com.example.fakestore.modelCategoryResponse.CategoryResponse
+import com.example.fakestore.model.modelCategoryResponse.CategoryResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

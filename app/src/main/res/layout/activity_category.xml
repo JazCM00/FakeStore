@@ -9,7 +9,19 @@
     android:orientation="vertical"
     tools:context=".activity.UserActivity">
 
-    <!--Mostramos el primer RecyclerView de Canales-->
+    <!-- Boton flotante para regresar a Menu -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|clip_vertical"
+        android:src="@drawable/logout"
+        app:rippleColor="@color/accent"
+        android:backgroundTint="@color/accent"
+        android:layout_margin="16dp" />
+    />
+
+    <!--Titulo de la pantalla-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,8 +31,10 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="35sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
+    <!--Mostramos el RecyclerView de Usuario-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategoria"
         android:layout_width="match_parent"

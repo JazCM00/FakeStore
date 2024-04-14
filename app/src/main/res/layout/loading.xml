@@ -9,17 +9,25 @@
     tools:context=".activity.UserActivity"
     android:gravity="center">
 
-    <!-- Boton flotante para regresar a Menu -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|clip_vertical"
-        android:src="@drawable/logout"
-        app:rippleColor="@color/accent"
-        android:backgroundTint="@color/accent"
-        android:layout_margin="16dp" />
-    />
+    <!--Progress Indicador-->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:foregroundGravity="center_vertical"
+        android:indeterminate="true"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <!--Logotipo-->
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/logogrande"
+        />
 
     <!--Titulo de la pantalla-->
     <TextView
@@ -27,18 +35,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginVertical="44dp"
-        android:text="@string/tltUsuario"
+        android:text="@string/tltBienvenidos"
+        android:fontFamily="@font/dsdigi"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="35sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         />
-
-    <!--Mostramos el RecyclerView de Usuario-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUsuarios"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

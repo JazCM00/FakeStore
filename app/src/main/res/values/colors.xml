@@ -4,12 +4,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Colores de la aplicacion FakeStore -->
-    <color name="first">#004ba8</color>
-    <color name="second">#005bbb</color>
-    <color name="third">#016cce</color>
-    <color name="fourth">#017ce1</color>
-    <color name="fifth">#018cf4</color>
-
     <color name="dark">#303F9F</color>
     <color name="light">#C5CAE9</color>
     <color name="primary">#3F51B5</color>
