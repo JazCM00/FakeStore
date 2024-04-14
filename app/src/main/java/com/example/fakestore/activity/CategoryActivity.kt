@@ -28,10 +28,12 @@ class CategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
+        Log.i(TAG,"**************************************************Entro en Categoria")
+
         InitializationComponents()
         InitializationListener()
 
-        Log.i(TAG,"**************************************************Entro en Categoria")
+
         //Regreso al Menu
         val btnMenu: View = findViewById(R.id.fabMenu)
         btnMenu.setOnClickListener{
@@ -40,7 +42,7 @@ class CategoryActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
+        Log.i(TAG,"**************************************************Paso 1")
         //Capturamos los recyclers
         val rvCategory: RecyclerView = findViewById((R.id.rvCategoria))
 
@@ -48,7 +50,7 @@ class CategoryActivity : AppCompatActivity() {
         val CategoryAdapter = CategoryAdapter(categoryInit)
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = CategoryAdapter
-
+        Log.i(TAG,"**************************************************Paso 2")
         //Crear la peticion
         val apiCategoryService = CategoryFactory.getCategoryRetrofit()
 
@@ -65,15 +67,17 @@ class CategoryActivity : AppCompatActivity() {
     }
     //Funcion q Inicializa todos los componentes
     private fun InitializationComponents(){
-        btnVerMas = findViewById<Button>(R.id.btnVerMas)
+        Log.i(TAG,"**************************************************Entro en Components")
+        //btnVerMas = findViewById<Button>(R.id.btnVerMas)
     }
 
     //Funcion que inicializa los Listener
     private fun InitializationListener(){
+        Log.i(TAG,"**************************************************Entro en listener")
         //Ir a productos
-        btnVerMas.setOnClickListener{
-            goToProduct()
-        }
+        //btnVerMas.setOnClickListener{
+        //    goToProduct()
+        //}
     }
 
     private fun goToProduct(){

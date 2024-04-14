@@ -1,5 +1,6 @@
 package com.example.fakestore.model.modelProductResponse
-import com.example.fakestore.modelCategoryResponse.CategoryResponseItem
+
+import com.example.fakestore.model.modelCategoryResponse.CategoryResponseItem
 data class ProductResponseItem(
     val category: CategoryResponseItem,
     val creationAt: String,
