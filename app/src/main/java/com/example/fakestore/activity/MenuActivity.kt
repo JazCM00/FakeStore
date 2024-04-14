@@ -35,6 +35,8 @@ class MenuActivity : AppCompatActivity() {
     // Almacenar
     private val profilesInit = mutableListOf<ProfileResponseItem>()
 
+    private lateinit var accessToken: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
@@ -62,7 +64,7 @@ class MenuActivity : AppCompatActivity() {
 
     //Funcion q Inicializa los datos
     private fun InitializationProfile(){
-        var accessToken: String
+
 
         //Verificamos si la sesion esta creada
         val preferences = PreferenceHelper.PreferenceHelper.defaultPrefs(this)
@@ -79,22 +81,8 @@ class MenuActivity : AppCompatActivity() {
         }
         Log.i(TAG,"**************************************************Token es $accessToken")
 
-        //Crear la peticion api para traer los datos del usuario loggeado
-        val apiProfileService = ProfileFactory.getProfileRetrofit()
-        lifecycleScope.launch {
-            //hacemos la peticion
-            val data = apiProfileService.getProfile(
-                "profile",
-                "Bearer "+ accessToken
-            )
-            Log.i(TAG, "**************************************************Los datos son $data")
-            txtName.text = data.name
-            txtRole.text = data.role
-            Picasso.get()
-                .load(data.avatar)
-                .error(R.mipmap.ic_launcher_round)
-                .into(imgProfile);
-        }
+        peticionApi()
+
     }
 
     //Funcion q Inicializa todos los componentes
@@ -154,6 +142,26 @@ class MenuActivity : AppCompatActivity() {
     private fun closeSession(){
         val preferences = PreferenceHelper.PreferenceHelper.defaultPrefs(this)
         preferences["session"] = false
+    }
+
+    //Funcion para la API
+    private fun peticionApi(){
+        //Crear la peticion api para traer los datos del usuario loggeado
+        val apiProfileService = ProfileFactory.getProfileRetrofit()
+        lifecycleScope.launch {
+            //hacemos la peticion
+            val data = apiProfileService.getProfile(
+                "profile",
+                "Bearer "+ accessToken
+            )
+            Log.i(TAG, "**************************************************Los datos son $data")
+            txtName.text = data.name
+            txtRole.text = data.role
+            Picasso.get()
+                .load(data.avatar)
+                .error(R.mipmap.ic_launcher_round)
+                .into(imgProfile);
+        }
     }
 
 }

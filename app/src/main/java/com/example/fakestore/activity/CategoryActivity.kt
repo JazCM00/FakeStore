@@ -39,7 +39,7 @@ class CategoryActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
+        Log.i(TAG,"**************************************************Paso 1")
         //Capturamos los recyclers
         val rvCategory: RecyclerView = findViewById((R.id.rvCategoria))
 
@@ -47,7 +47,7 @@ class CategoryActivity : AppCompatActivity() {
         val CategoryAdapter = CategoryAdapter(categoryInit)
         rvCategory.layoutManager = LinearLayoutManager(this)
         rvCategory.adapter = CategoryAdapter
-
+        Log.i(TAG,"**************************************************Paso 2")
         //Crear la peticion
         val apiCategoryService = CategoryFactory.getCategoryRetrofit()
 

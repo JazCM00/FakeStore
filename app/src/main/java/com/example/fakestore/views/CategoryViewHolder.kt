@@ -18,8 +18,6 @@ class CategoryViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     private val txtName: TextView = view.findViewById(R.id.txtName)
     private val imgAvatar: ImageView = view.findViewById(R.id.imgAvatar)
     val btnVerMas: Button = view.findViewById(R.id.btnVerMas)
-
-
     fun render(category: CategoryResponseItem){
 
         txtName.text = category.name
