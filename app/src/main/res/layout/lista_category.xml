@@ -42,6 +42,22 @@
             android:layout_marginBottom="10dp"
             />
 
+        <!-- Boton Detalle -->
+        <Button
+            android:id="@+id/btnUsuarios"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/accent"
+
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:text="DETALLE"
+            android:textColor="@color/text" />
+
 
 
     </LinearLayout>

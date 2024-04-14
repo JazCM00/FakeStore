@@ -3,4 +3,6 @@
     <string name="menu">MENU</string>
     <string name="tltUsuario">USUARIOS</string>
     <string name="tltCategoria">CATEGORIAS</string>
+    <string name="tltBienvenidos">BIENVENIDOS</string>
+
 </resources>

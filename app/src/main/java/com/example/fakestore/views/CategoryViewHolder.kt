@@ -5,9 +5,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fakestore.R
-import com.example.fakestore.model.Category
-import com.example.fakestore.model.modelUserResponse.UserResponseItem
-import com.example.fakestore.modelCategoryResponse.CategoryResponseItem
+import com.example.fakestore.model.modelCategoryResponse.CategoryResponseItem
+
 import com.squareup.picasso.Picasso
 
 class CategoryViewHolder (view: View) : RecyclerView.ViewHolder(view) {

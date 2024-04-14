@@ -1,17 +1,15 @@
 package com.example.fakestore.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fakestore.R
 import com.example.fakestore.adapters.UserAdapter
-import com.example.fakestore.model.User
 import com.example.fakestore.model.modelUserResponse.UserResponseItem
 import com.example.fakestore.service.RetrofitServiceFactory
 import kotlinx.coroutines.launch
@@ -26,6 +24,17 @@ class UserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
+
+        Log.i(TAG,"**************************************************Entro en User")
+
+        //Regreso al Menu
+        val btnMenu: View = findViewById(R.id.fabMenu)
+        btnMenu.setOnClickListener{
+            Log.i(TAG,"**************************************************Salio en User")
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         //Capturamos los recyclers
         val rvUsuarios: RecyclerView = findViewById((R.id.rvUsuarios))
@@ -48,5 +57,4 @@ class UserActivity : AppCompatActivity() {
             userAdapter.notifyDataSetChanged()
         }
     }
-
 }

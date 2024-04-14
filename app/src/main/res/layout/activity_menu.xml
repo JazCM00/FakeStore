@@ -33,7 +33,7 @@
                 android:text="@string/menu"
                 android:fontFamily="@font/dsdigi"
                 android:textColor="@color/text"
-                android:textSize="50sp"/>
+                android:textSize="40sp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -107,54 +107,96 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <!-- Boton Detalle -->
-            <Button
-                android:id="@+id/btnUsuarios"
+            <!-- Boton Usuarios -->
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/accent"
-                android:drawableLeft="@drawable/user"
-                android:paddingLeft="60dp"
-                android:paddingRight="60dp"
-                android:text="USUARIOS"
-                android:textColor="@color/text" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
 
-            <!-- Boton Detalle -->
-            <Button
-                android:id="@+id/btnCategorias"
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="15dp"
+                    app:srcCompat="@drawable/user"
+                    android:layout_gravity="center_vertical"
+                    android:foregroundGravity="center"
+                    />
+                <Button
+                    android:id="@+id/btnUsuarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/accent"
+                    android:paddingLeft="60dp"
+                    android:paddingRight="60dp"
+                    android:text="USUARIOS"
+                    android:textColor="@color/text" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- Boton Categorias -->
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/accent"
-                android:drawableLeft="@drawable/category"
-                android:paddingLeft="60dp"
-                android:paddingRight="60dp"
-                android:text="CATEGORIAS"
-                android:textColor="@color/text" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    app:srcCompat="@drawable/categorias"
+                    android:layout_gravity="center_vertical"
+                    android:foregroundGravity="center"
+                    />
+                <Button
+                    android:id="@+id/btnCategorias"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/accent"
+                    android:paddingLeft="60dp"
+                    android:paddingRight="60dp"
+                    android:text="CATEGORIAS"
+                    android:textColor="@color/text" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <!-- Boton Salir -->
-            <Button
-                android:id="@+id/btnSalir"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/accent"
-                android:drawableLeft="@drawable/logout"
-                android:paddingLeft="60dp"
-                android:paddingRight="60dp"
-                android:text="CERRAR SESION"
-                android:textColor="@color/text" />
+                android:layout_marginBottom="25dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    app:srcCompat="@drawable/salir"
+                    android:layout_gravity="center_vertical"
+                    android:foregroundGravity="center"
+                    />
+                <Button
+                    android:id="@+id/btnSalir"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/accent"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:text="CERRAR SESION"
+                    android:textColor="@color/text" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
