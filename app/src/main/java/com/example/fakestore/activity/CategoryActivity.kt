@@ -28,14 +28,13 @@ class CategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
-        InitializationComponents()
-        InitializationListener()
 
-        Log.i(TAG,"**************************************************Entro en Categoria")
+
+        Log.i(TAG, "**************************************************Entro en Categoria")
         //Regreso al Menu
         val btnMenu: View = findViewById(R.id.fabMenu)
-        btnMenu.setOnClickListener{
-            Log.i(TAG,"**************************************************Salio de categoria")
+        btnMenu.setOnClickListener {
+            Log.i(TAG, "**************************************************Salio de categoria")
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
@@ -61,24 +60,5 @@ class CategoryActivity : AppCompatActivity() {
             //Repintar el recycleView
             CategoryAdapter.notifyDataSetChanged()
         }
-
-    }
-    //Funcion q Inicializa todos los componentes
-    private fun InitializationComponents(){
-        btnVerMas = findViewById<Button>(R.id.btnVerMas)
-    }
-
-    //Funcion que inicializa los Listener
-    private fun InitializationListener(){
-        //Ir a productos
-        btnVerMas.setOnClickListener{
-            goToProduct()
-        }
-    }
-
-    private fun goToProduct(){
-        val intent = Intent(this, ProductActivity::class.java)
-        startActivity(intent)
-        finish()
     }
 }

@@ -1,11 +1,6 @@
 package com.example.fakestore.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,8 +17,7 @@ class ProductActivity : AppCompatActivity() {
 
     // Almacenar
     private val productInit = mutableListOf<ProductResponseItem>()
-    //Variables de los componentes
-    private lateinit var btnVerMas: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,18 +25,17 @@ class ProductActivity : AppCompatActivity() {
 
         //Capturamos los recyclers
         val rvProduct: RecyclerView = findViewById((R.id.rvProducto))
-
         //Montamos el recycler de categoria
         val productAdapter = ProductAdapter(productInit)
         rvProduct.layoutManager = LinearLayoutManager(this)
         rvProduct.adapter = productAdapter
 
         //Crear la peticion
-        val apiProductService = ProductFactory.getProduct()
+        val apiProductService = ProductFactory.getProductRetrofit()
 
         lifecycleScope.launch {
             //hacemos la peticion
-            val data = apiProductService.getCategory("3")
+            val data = apiProductService.getProduct("")
             //Borar los datos del userAdapter
             productInit.clear()
             productInit.addAll(data)

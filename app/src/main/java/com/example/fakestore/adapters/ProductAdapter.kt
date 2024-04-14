@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fakestore.R
 import com.example.fakestore.model.modelProductResponse.ProductResponseItem
-import com.example.fakestore.views.CategoryViewHolder
 import com.example.fakestore.views.ProductViewHolder
 
 class ProductAdapter(private val products: List<ProductResponseItem>) :
