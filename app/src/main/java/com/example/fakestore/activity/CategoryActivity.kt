@@ -1,6 +1,9 @@
 package com.example.fakestore.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,14 +24,13 @@ class CategoryActivity : AppCompatActivity() {
 
     // Almacenar
     private val categoryInit = mutableListOf<CategoryResponseItem>()
-
-
+    private lateinit var btnVerMas: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_category)
-
+        InitializationComponents()
+        InitializationListener()
         //Capturamos los recyclers
         val rvCategory: RecyclerView = findViewById((R.id.rvCategoria))
 
@@ -50,5 +52,23 @@ class CategoryActivity : AppCompatActivity() {
             CategoryAdapter.notifyDataSetChanged()
         }
 
+    }
+    //Funcion q Inicializa todos los componentes
+    private fun InitializationComponents(){
+        btnVerMas = findViewById<Button>(R.id.btnVerMas)
+    }
+
+    //Funcion que inicializa los Listener
+    private fun InitializationListener(){
+        //Ir a productos
+        btnVerMas.setOnClickListener{
+            goToProduct()
+        }
+    }
+
+    private fun goToProduct(){
+        val intent = Intent(this, ProductActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
